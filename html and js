@@ -1,0 +1,68 @@
+<head>
+<link rel="stylesheet" href="style.css">
+<title>timer</title>
+</head>
+<br>
+<br>
+<br>
+<body>
+    <div class="div1">
+        <br>
+        <br>
+        <br>
+        <div id="div2">
+0:0:0
+
+        </div>
+        <div id="div3">
+            <br>
+            <button onclick="start()" id="btn1">start</button>
+            <button onclick="Stop()" id="btn2">stop</button>
+            <button onclick="reset()" id="btn3">reset</button>
+
+
+        </div>
+
+
+    </div>
+    
+
+
+    <script>
+        var sec=0;
+        var min=0
+        var hour=0
+        var flag=true;
+        function start(){
+            if(flag==true){
+
+            function t1(){
+                sec++;
+                if(sec==60){
+                    sec=0
+                    min++
+                }
+                if(min==60){
+                    min=0
+                    hour++
+                }
+                document.getElementById("div2").innerHTML=hour+":"+min+":"+sec
+            }
+
+                myInterval=setInterval(t1,1000)
+            flag=false}}
+            function Stop(){if(flag==false){
+                clearInterval(myInterval)
+                
+            flag=true}
+            }
+            function reset(){
+                Stop()
+                    sec=0;
+                    min=0
+                    hour=0
+                    document.getElementById("div2").innerHTML="0:0:0"
+            }
+
+    </script>
+</body>
